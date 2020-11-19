@@ -10,7 +10,6 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core'
-
 import * as yup from 'yup'
 import axios from 'axios'
 const useStyles = makeStyles((theme: Theme) => ({
@@ -143,7 +142,7 @@ export default function SignIn() {
     validationSchema: yup.object().shape({
       userid: yup.string().required()
         ,
-      password: yup.string().required().min(8),
+      password: yup.string().required().min(4),
     }),
    
   })
@@ -164,13 +163,13 @@ const headers = {
           `/tokens`,loginInfo,{headers}
         );
         setData(result.data);
-      
+        console.log(result.status)
     if (result.status === 200) {
         setStatus(true)
       document.cookie = `token=${result.data.token}`;
       history.push('/todo')
           }
-console.log(status)
+
     console.log(data)
   }
 

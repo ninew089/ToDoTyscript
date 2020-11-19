@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 import { Route } from 'react-router-dom'
 import {PrivateRouteProps} from 'tyscripst.model'
-
+import readerCookie from 'readerCookie'
 export default function PrivateRoute({ component: Component, ...rest }:PrivateRouteProps) {
     function readCookie(name: string) {
         var nameEQ = name + "=";
@@ -14,7 +14,7 @@ export default function PrivateRoute({ component: Component, ...rest }:PrivateRo
         }
         return null;
       }
-  const token = readCookie('token');
+  const token = readerCookie('token');
   
   const authed = () => {
  

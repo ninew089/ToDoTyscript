@@ -20,6 +20,7 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import readerCookie from 'readerCookie'
 export default function ReportTable() {
   const tableIcons = {
     Add: forwardRef<SVGSVGElement>((props, ref) => (
@@ -96,7 +97,7 @@ export default function ReportTable() {
     return null;
   }
   let data: Array<any> = [];
-  const token =readCookie('token');
+  const token =readerCookie('token');
   const headers = {
     Authorization: `Bearer ${token}`,
 "Access-Control-Allow-Origin":"*","Access-Control-Allow-Credentials":true ,"Content-Type": "application/json", }
